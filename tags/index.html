@@ -82,11 +82,11 @@
 <meta name="description" content="欢迎来到猛汉的博客">
 <meta property="og:type" content="website">
 <meta property="og:title" content="标签">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
-<meta property="og:site_name" content="menghan&#39;s blog">
+<meta property="og:url" content="http://menghan18.github.io/tags/index.html">
+<meta property="og:site_name" content="Menghan&#39;s Blog">
 <meta property="og:description" content="欢迎来到猛汉的博客">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-01T13:30:45.633Z">
+<meta property="og:updated_time" content="2019-02-02T08:51:54.239Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="标签">
 <meta name="twitter:description" content="欢迎来到猛汉的博客">
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/">
+  <link rel="canonical" href="http://menghan18.github.io/tags/">
 
 
 
 
 
-  <title>标签 | menghan's blog</title>
+  <title>标签 | Menghan's Blog</title>
   
 
 
@@ -155,7 +155,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">menghan's blog</span>
+        <span class="site-title">Menghan's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -186,16 +186,6 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
-            
-            关于
           </a>
         </li>
       
@@ -325,15 +315,6 @@
 
           
 
-  
-    <div class="comments" id="comments">
-      <div id="lv-container" data-id="city" data-uid="MTAyMC80MjQ4Mi8xOTAyOQ=="></div>
-    </div>
-
-  
-
-
-
         </div>
         
           
@@ -358,9 +339,9 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="menghan">
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Menghan">
             
-              <p class="site-author-name" itemprop="name">menghan</p>
+              <p class="site-author-name" itemprop="name">Menghan</p>
               <p class="site-description motion-element" itemprop="description">欢迎来到猛汉的博客</p>
           </div>
 
@@ -450,21 +431,15 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">menghan</span>
+  <span class="author" itemprop="copyrightHolder">Menghan</span>
 
   
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
 
 
@@ -605,26 +580,37 @@
 
 
   
-    <script type="text/javascript">
-      (function(d, s) {
-        var j, e = d.getElementsByTagName(s)[0];
-        if (typeof LivereTower === 'function') { return; }
-        j = d.createElement(s);
-        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-        j.async = true;
-        e.parentNode.insertBefore(j, e);
-      })(document, 'script');
-    </script>
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
   
-
-
-
-
-
-
-
-
-
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'VnmIg3bD44Bi4uLCLa2ajhiN-gzGzoHsz',
+        appKey: '7rAcyo0bBofNvL0MTokfKEss',
+        placeholder: '欢迎评论~',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
