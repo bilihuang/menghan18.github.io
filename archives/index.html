@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="无名的前端新人">
+<meta name="description" content="一个前端新人的博客">
 <meta name="keywords" content="前端,博客,Vue">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Menghan&#39;s Blog">
 <meta property="og:url" content="http://menghan18.github.io/archives/index.html">
 <meta property="og:site_name" content="Menghan&#39;s Blog">
-<meta property="og:description" content="无名的前端新人">
+<meta property="og:description" content="一个前端新人的博客">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Menghan&#39;s Blog">
-<meta name="twitter:description" content="无名的前端新人">
+<meta name="twitter:description" content="一个前端新人的博客">
 
 
 
@@ -99,7 +99,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -131,6 +131,16 @@
 
 
 
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8794e42b42a862d3438e109447917a42";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
@@ -629,6 +639,8 @@
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
         
+          <span id="scrollpercent"><span>0</span>%</span>
+        
       </div>
     
 
@@ -770,7 +782,7 @@
         notify: false,
         appId: 'VnmIg3bD44Bi4uLCLa2ajhiN-gzGzoHsz',
         appKey: '7rAcyo0bBofNvL0MTokfKEss',
-        placeholder: '欢迎评论~',
+        placeholder: '欢迎路过的朋友们指点，可以留下你们的邮箱哦',
         avatar:'mm',
         guest_info:guest,
         pageSize:'10' || 10,
@@ -1214,6 +1226,21 @@
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
   
