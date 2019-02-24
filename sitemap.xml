@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://menghan18.github.io/vue-component/</loc>
+    
+    <lastmod>2019-02-24T09:35:43.421Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://menghan18.github.io/vue-router/</loc>
     
-    <lastmod>2019-02-03T15:09:46.672Z</lastmod>
+    <lastmod>2019-02-24T09:34:45.815Z</lastmod>
     
   </url>
   
