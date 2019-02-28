@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://menghan18.github.io/js-this/</loc>
+    <lastmod>2019-02-28</lastmod>
+  </url>  <url>
+    <loc>http://menghan18.github.io/es6-function/</loc>
+    <lastmod>2019-02-27</lastmod>
+  </url>  <url>
+    <loc>http://menghan18.github.io/js-array/</loc>
+    <lastmod>2019-02-27</lastmod>
+  </url>  <url>
     <loc>http://menghan18.github.io/vue-component/</loc>
     <lastmod>2019-02-24</lastmod>
   </url>  <url>
@@ -8,12 +17,6 @@
     <lastmod>2019-02-24</lastmod>
   </url>  <url>
     <loc>http://menghan18.github.io/vue-basis/</loc>
-    <lastmod>2019-02-03</lastmod>
-  </url>  <url>
-    <loc>http://menghan18.github.io/es6-function/</loc>
-    <lastmod>2019-02-03</lastmod>
-  </url>  <url>
-    <loc>http://menghan18.github.io/js-array/</loc>
     <lastmod>2019-02-03</lastmod>
   </url>  <url>
     <loc>http://menghan18.github.io/gitCommand/</loc>
