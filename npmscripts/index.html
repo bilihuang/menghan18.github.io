@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Menghan&#39;s Blog">
 <meta property="og:description" content="Node 开发离不开 npm，而脚本功能是 npm 最强大、最常用的功能之一。本文介绍如何使用 npm 脚本（npm scripts）。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-03T14:48:54.329Z">
+<meta property="og:updated_time" content="2019-03-03T16:29:45.264Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="npm scripts使用指南">
 <meta name="twitter:description" content="Node 开发离不开 npm，而脚本功能是 npm 最强大、最常用的功能之一。本文介绍如何使用 npm 脚本（npm scripts）。">
@@ -340,8 +340,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-03T22:48:54+08:00">
-                2019-03-03
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-04T00:29:45+08:00">
+                2019-03-04
               </time>
             
           </span>
@@ -520,6 +520,10 @@
 <p>最后，<code>env</code> 命令可以列出所有环境变量。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;env&quot;: &quot;env&quot;</span><br></pre></td></tr></table></figure>
 <h3 id="十、常用脚本示例"><a href="#十、常用脚本示例" class="headerlink" title="十、常用脚本示例"></a>十、常用脚本示例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// 删除目录</span><br><span class="line">&quot;clean&quot;: &quot;rimraf dist/*&quot;,</span><br><span class="line"></span><br><span class="line">// 本地搭建一个 HTTP 服务</span><br><span class="line">&quot;serve&quot;: &quot;http-server -p 9090 dist/&quot;,</span><br><span class="line"></span><br><span class="line">// 打开浏览器</span><br><span class="line">&quot;open:dev&quot;: &quot;opener http://localhost:9090&quot;,</span><br><span class="line"></span><br><span class="line">// 实时刷新</span><br><span class="line"> &quot;livereload&quot;: &quot;live-reload --port 9091 dist/&quot;,</span><br><span class="line"></span><br><span class="line">// 构建 HTML 文件</span><br><span class="line">&quot;build:html&quot;: &quot;jade index.jade &gt; dist/index.html&quot;,</span><br><span class="line"></span><br><span class="line">// 只要 CSS 文件有变动，就重新执行构建</span><br><span class="line">&quot;watch:css&quot;: &quot;watch &apos;npm run build:css&apos; assets/styles/&quot;,</span><br><span class="line"></span><br><span class="line">// 只要 HTML 文件有变动，就重新执行构建</span><br><span class="line">&quot;watch:html&quot;: &quot;watch &apos;npm run build:html&apos; assets/html&quot;,</span><br><span class="line"></span><br><span class="line">// 部署到 Amazon S3</span><br><span class="line">&quot;deploy:prod&quot;: &quot;s3-cli sync ./dist/ s3://example-com/prod-site/&quot;,</span><br><span class="line"></span><br><span class="line">// 构建 favicon</span><br><span class="line">&quot;build:favicon&quot;: &quot;node scripts/favicon.js&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="十一、参考链接"><a href="#十一、参考链接" class="headerlink" title="十一、参考链接"></a>十一、参考链接</h3><ul>
+<li>阮一峰 <a href="http://www.ruanyifeng.com/blog/2016/10/npm_scripts.html" target="_blank" rel="noopener">《npm scripts 使用指南》</a></li>
+</ul>
+
       
     </div>
     
@@ -728,7 +732,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、什么是npm脚本-npm-scripts-？"><span class="nav-number">1.</span> <span class="nav-text">一、什么是npm脚本(npm scripts)？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、原理"><span class="nav-number">2.</span> <span class="nav-text">二、原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、通配符"><span class="nav-number">3.</span> <span class="nav-text">三、通配符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、传参"><span class="nav-number">4.</span> <span class="nav-text">四、传参</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、执行顺序"><span class="nav-number">5.</span> <span class="nav-text">五、执行顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、默认值"><span class="nav-number">6.</span> <span class="nav-text">六、默认值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七、钩子"><span class="nav-number">7.</span> <span class="nav-text">七、钩子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#八、简写形式"><span class="nav-number">8.</span> <span class="nav-text">八、简写形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#九、变量"><span class="nav-number">9.</span> <span class="nav-text">九、变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十、常用脚本示例"><span class="nav-number">10.</span> <span class="nav-text">十、常用脚本示例</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、什么是npm脚本-npm-scripts-？"><span class="nav-number">1.</span> <span class="nav-text">一、什么是npm脚本(npm scripts)？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、原理"><span class="nav-number">2.</span> <span class="nav-text">二、原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、通配符"><span class="nav-number">3.</span> <span class="nav-text">三、通配符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、传参"><span class="nav-number">4.</span> <span class="nav-text">四、传参</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、执行顺序"><span class="nav-number">5.</span> <span class="nav-text">五、执行顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、默认值"><span class="nav-number">6.</span> <span class="nav-text">六、默认值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七、钩子"><span class="nav-number">7.</span> <span class="nav-text">七、钩子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#八、简写形式"><span class="nav-number">8.</span> <span class="nav-text">八、简写形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#九、变量"><span class="nav-number">9.</span> <span class="nav-text">九、变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十、常用脚本示例"><span class="nav-number">10.</span> <span class="nav-text">十、常用脚本示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十一、参考链接"><span class="nav-number">11.</span> <span class="nav-text">十一、参考链接</span></a></li></ol></div>
             
 
           </div>
