@@ -68,6 +68,7 @@
 
 
 
+  <meta name="keywords" content="ES6,JavaScript,箭头函数,解构赋值">
 
 
 
@@ -77,18 +78,19 @@
 
 
 
-<meta name="description" content="一个前端新人的博客">
-<meta name="keywords" content="前端,Vue">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="https://huangdongyang.cn/about/index.html">
+
+<meta name="description" content="以前学习ES6的一些笔记，包括箭头函数、解构赋值与函数默认参数">
+<meta name="keywords" content="ES6,JavaScript,箭头函数,解构赋值">
+<meta property="og:type" content="article">
+<meta property="og:title" content="es6解构赋值与函数相关知识点">
+<meta property="og:url" content="https://huangdongyang.cn/es6-function.html">
 <meta property="og:site_name" content="Menghan&#39;s Blog">
-<meta property="og:description" content="一个前端新人的博客">
+<meta property="og:description" content="以前学习ES6的一些笔记，包括箭头函数、解构赋值与函数默认参数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-02T09:21:06.484Z">
+<meta property="og:updated_time" content="2019-02-27T14:35:42.866Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="一个前端新人的博客">
+<meta name="twitter:title" content="es6解构赋值与函数相关知识点">
+<meta name="twitter:description" content="以前学习ES6的一些笔记，包括箭头函数、解构赋值与函数默认参数">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://huangdongyang.cn/about/">
+  <link rel="canonical" href="https://huangdongyang.cn/es6-function.html">
 
 
 
 
 
-  <title>about | Menghan's Blog</title>
+  <title>es6解构赋值与函数相关知识点 | Menghan's Blog</title>
   
 
 
@@ -281,33 +283,256 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://huangdongyang.cn/es6-function.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Menghan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Menghan's Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h2 class="post-title" itemprop="name headline">about</h2>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
+          <h2 class="post-title" itemprop="name headline">es6解构赋值与函数相关知识点</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-03T15:52:54+08:00">
+                2019-02-03
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-27T22:35:42+08:00">
+                2019-02-27
+              </time>
+            
+          </span>
+
           
-        
-      </div>
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/jsNote/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/es6-function.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/es6-function.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/es6-function.html" class="leancloud_visitors" data-flag-title="es6解构赋值与函数相关知识点">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  以前学习ES6的一些笔记，包括箭头函数、解构赋值与函数默认参数
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h3 id="一、箭头函数"><a href="#一、箭头函数" class="headerlink" title="一、箭头函数"></a>一、箭头函数</h3><p><strong>注意点</strong></p>
+<p>箭头函数有几个使用注意点：</p>
+<p>（1）函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。<br>（2）不可以当作构造函数，也就是说，不可以使用new命令，否则会抛出一个错误。<br>（3）不可以使用arguments对象，该对象在函数体内不存在。如果要用，可以用 rest 参数代替。<br>（4）不可以使用yield命令，因此箭头函数不能用作 Generator 函数。</p>
+<p>this对象的指向一般是可变的，但是在箭头函数中，它是固定的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function foo() &#123;</span><br><span class="line">  setTimeout(() =&gt; &#123;</span><br><span class="line">    console.log(&apos;id:&apos;, this.id);</span><br><span class="line">  &#125;, 100);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var id = 21;</span><br><span class="line"></span><br><span class="line">foo.call(&#123; id: 42 &#125;);</span><br><span class="line">// id: 42</span><br></pre></td></tr></table></figure></p>
+<p>上面代码中，setTimeout的参数是一个箭头函数，这个箭头函数的定义生效是在foo函数生成时，而它的真正执行要等到 100 毫秒后。如果是普通函数，执行时this应该指向全局对象window，这时应该输出21。但是，箭头函数导致this总是指向函数定义生效时所在的对象（本例是{id: 42}），所以输出的是42。</p>
+<p>箭头函数可以让setTimeout里面的this，绑定定义时所在的作用域，而不是指向运行时所在的作用域。下面是另一个例子。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function Timer() &#123;</span><br><span class="line">  this.s1 = 0;</span><br><span class="line">  this.s2 = 0;</span><br><span class="line">  // 箭头函数</span><br><span class="line">  setInterval(() =&gt; this.s1++, 1000);</span><br><span class="line">  // 普通函数</span><br><span class="line">  setInterval(function () &#123;</span><br><span class="line">    this.s2++;</span><br><span class="line">  &#125;, 1000);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var timer = new Timer();</span><br><span class="line"></span><br><span class="line">setTimeout(() =&gt; console.log(&apos;s1: &apos;, timer.s1), 3100);</span><br><span class="line">setTimeout(() =&gt; console.log(&apos;s2: &apos;, timer.s2), 3100);</span><br><span class="line">// s1: 3</span><br><span class="line">// s2: 0</span><br></pre></td></tr></table></figure></p>
+<p>上面代码中，Timer函数内部设置了两个定时器，分别使用了箭头函数和普通函数。前者的this绑定定义时所在的作用域（即Timer函数），后者的this指向运行时所在的作用域（即全局对象）。所以，3100 毫秒之后，timer.s1被更新了 3 次，而timer.s2一次都没更新。</p>
+<p>箭头函数可以让this指向固定化，这种特性很有利于封装回调函数。下面是一个例子，DOM 事件的回调函数封装在一个对象里面。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var handler = &#123;</span><br><span class="line">  id: &apos;123456&apos;,</span><br><span class="line"></span><br><span class="line">  init: function() &#123;</span><br><span class="line">    document.addEventListener(&apos;click&apos;,</span><br><span class="line">      event =&gt; this.doSomething(event.type), false);</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  doSomething: function(type) &#123;</span><br><span class="line">    console.log(&apos;Handling &apos; + type  + &apos; for &apos; + this.id);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>上面代码的init方法中，使用了箭头函数，这导致这个箭头函数里面的this，总是指向handler对象。否则，回调函数运行时，this.doSomething这一行会报错，因为此时this指向document对象。</p>
+<p>this指向的固定化，并不是因为箭头函数内部有绑定this的机制，实际原因是箭头函数根本没有自己的this，导致内部的this就是外层代码块的this。正是因为它没有this，所以也就不能用作构造函数。</p>
+<p>所以，箭头函数转成 ES5 的代码如下。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// ES6</span><br><span class="line">function foo() &#123;</span><br><span class="line">  setTimeout(() =&gt; &#123;</span><br><span class="line">    console.log(&apos;id:&apos;, this.id);</span><br><span class="line">  &#125;, 100);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// ES5</span><br><span class="line">function foo() &#123;</span><br><span class="line">  var _this = this;</span><br><span class="line"></span><br><span class="line">  setTimeout(function () &#123;</span><br><span class="line">    console.log(&apos;id:&apos;, _this.id);</span><br><span class="line">  &#125;, 100);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上面代码中，可以看出箭头函数里面根本没有自己的this，而是引用外层的this。</p>
+<p>请问下面的代码之中有几个this？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function foo() &#123;</span><br><span class="line">  return () =&gt; &#123;</span><br><span class="line">    return () =&gt; &#123;</span><br><span class="line">      return () =&gt; &#123;</span><br><span class="line">        console.log(&apos;id:&apos;, this.id);</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var f = foo.call(&#123;id: 1&#125;);</span><br><span class="line"></span><br><span class="line">var t1 = f.call(&#123;id: 2&#125;)()(); // id: 1</span><br><span class="line">var t2 = f().call(&#123;id: 3&#125;)(); // id: 1</span><br><span class="line">var t3 = f()().call(&#123;id: 4&#125;); // id: 1</span><br></pre></td></tr></table></figure></p>
+<p>上面代码之中，只有一个this，就是函数foo的this，所以t1、t2、t3都输出同样的结果。因为所有的内层函数都是箭头函数，都没有自己的this，它们的this其实都是最外层foo函数的this。</p>
+<p>除了this，以下三个变量在箭头函数之中也是不存在的，指向外层函数的对应变量：arguments、super、new.target。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function foo() &#123;</span><br><span class="line">  setTimeout(() =&gt; &#123;</span><br><span class="line">    console.log(&apos;args:&apos;, arguments);</span><br><span class="line">  &#125;, 100);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo(2, 4, 6, 8)</span><br><span class="line">// args: [2, 4, 6, 8]</span><br></pre></td></tr></table></figure></p>
+<p>上面代码中，箭头函数内部的变量arguments，其实是函数foo的arguments变量。</p>
+<p>另外，由于箭头函数没有自己的this，所以当然也就不能用call()、apply()、bind()这些方法去改变this的指向。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(function() &#123;</span><br><span class="line">  return [</span><br><span class="line">    (() =&gt; this.x).bind(&#123; x: &apos;inner&apos; &#125;)()</span><br><span class="line">  ];</span><br><span class="line">&#125;).call(&#123; x: &apos;outer&apos; &#125;);</span><br><span class="line">// [&apos;outer&apos;]</span><br></pre></td></tr></table></figure></p>
+<p>上面代码中，箭头函数没有自己的this，所以bind方法无效，内部的this指向外部的this。</p>
+<p>长期以来，JavaScript 语言的this对象一直是一个令人头痛的问题，在对象方法中使用this，必须非常小心。箭头函数”绑定”this，很大程度上解决了这个困扰。</p>
+<h3 id="二、双冒号运算符"><a href="#二、双冒号运算符" class="headerlink" title="二、双冒号运算符"></a>二、双冒号运算符</h3><p>箭头函数可以绑定this对象，大大减少了显式绑定this对象的写法（call、apply、bind）。但是，箭头函数并不适用于所有场合，所以现在有一个提案，提出了“函数绑定”（function bind）运算符，用来取代call、apply、bind调用。</p>
+<p>函数绑定运算符是并排的两个冒号（::），双冒号左边是一个对象，右边是一个函数。该运算符会自动将左边的对象，作为上下文环境（即this对象），绑定到右边的函数上面。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">foo::bar;</span><br><span class="line">// 等同于</span><br><span class="line">bar.bind(foo);</span><br><span class="line"></span><br><span class="line">foo::bar(...arguments);</span><br><span class="line">// 等同于</span><br><span class="line">bar.apply(foo, arguments);</span><br><span class="line"></span><br><span class="line">const hasOwnProperty = Object.prototype.hasOwnProperty;</span><br><span class="line">function hasOwn(obj, key) &#123;</span><br><span class="line">  return obj::hasOwnProperty(key);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果双冒号左边为空，右边是一个对象的方法，则等于将该方法绑定在该对象上面。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var method = obj::obj.foo;</span><br><span class="line">// 等同于</span><br><span class="line">var method = ::obj.foo;</span><br><span class="line"></span><br><span class="line">let log = ::console.log;</span><br><span class="line">// 等同于</span><br><span class="line">var log = console.log.bind(console);</span><br></pre></td></tr></table></figure></p>
+<p>如果双冒号运算符的运算结果，还是一个对象，就可以采用链式写法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import &#123; map, takeWhile, forEach &#125; from &quot;iterlib&quot;;</span><br><span class="line"></span><br><span class="line">getPlayers()</span><br><span class="line">::map(x =&gt; x.character())</span><br><span class="line">::takeWhile(x =&gt; x.strength &gt; 100)</span><br><span class="line">::forEach(x =&gt; console.log(x));</span><br></pre></td></tr></table></figure></p>
+<h3 id="三、解构赋值"><a href="#三、解构赋值" class="headerlink" title="三、解构赋值"></a>三、解构赋值</h3><p><strong>解构赋值默认值与函数参数默认值</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 写法一</span><br><span class="line">function m1(&#123;x = 0, y = 0&#125; = &#123;&#125;) &#123;</span><br><span class="line">  return [x, y];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 写法二</span><br><span class="line">function m2(&#123;x, y&#125; = &#123; x: 0, y: 0 &#125;) &#123;</span><br><span class="line">  return [x, y];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>写法一函数参数的默认值是空对象，但是设置了对象解构赋值的默认值；写法二函数参数的默认值是一个有具体属性的对象，但是没有设置对象解构赋值的默认值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// 函数没有参数的情况</span><br><span class="line">m1() // [0, 0]</span><br><span class="line">m2() // [0, 0]</span><br><span class="line"></span><br><span class="line">// x 和 y 都有值的情况</span><br><span class="line">m1(&#123;x: 3, y: 8&#125;) // [3, 8]</span><br><span class="line">m2(&#123;x: 3, y: 8&#125;) // [3, 8]</span><br><span class="line"></span><br><span class="line">// x 有值，y 无值的情况</span><br><span class="line">m1(&#123;x: 3&#125;) // [3, 0]</span><br><span class="line">m2(&#123;x: 3&#125;) // [3, undefined]</span><br><span class="line"></span><br><span class="line">// x 和 y 都无值的情况</span><br><span class="line">m1(&#123;&#125;) // [0, 0];</span><br><span class="line">m2(&#123;&#125;) // [undefined, undefined]</span><br><span class="line"></span><br><span class="line">m1(&#123;z: 3&#125;) // [0, 0]</span><br><span class="line">m2(&#123;z: 3&#125;) // [undefined, undefined]</span><br></pre></td></tr></table></figure></p>
+<p><strong>函数的length属性</strong><br>指定了默认值以后，函数的length属性，将返回没有指定默认值的参数个数。也就是说，指定了默认值后，length属性将失真。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(function (a) &#123;&#125;).length // 1</span><br><span class="line">(function (a = 5) &#123;&#125;).length // 0</span><br><span class="line">(function (a, b, c = 5) &#123;&#125;).length // 2</span><br></pre></td></tr></table></figure></p>
+<p>上面代码中，length属性的返回值，等于函数的参数个数减去指定了默认值的参数个数。比如，上面最后一个函数，定义了 3 个参数，其中有一个参数c指定了默认值，因此length属性等于3减去1，最后得到2。</p>
+<p>这是因为length属性的含义是，该函数预期传入的参数个数。某个参数指定默认值以后，预期传入的参数个数就不包括这个参数了。同理，后文的 rest 参数也不会计入length属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(function(...args) &#123;&#125;).length // 0</span><br></pre></td></tr></table></figure></p>
+<p>如果设置了默认值的参数不是尾参数，那么length属性也不再计入后面的参数了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(function (a = 0, b, c) &#123;&#125;).length // 0</span><br><span class="line">(function (a, b = 1, c) &#123;&#125;).length // 1</span><br></pre></td></tr></table></figure></p>
+<p>本文参考自阮一峰大神的《ES6标准入门》<br>原文链接：<a href="http://es6.ruanyifeng.com/" target="_blank" rel="noopener">http://es6.ruanyifeng.com/</a></p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Menghan
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://huangdongyang.cn/es6-function.html" title="es6解构赋值与函数相关知识点">https://huangdongyang.cn/es6-function.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i>&nbsp;JavaScript</a>
+          
+            <a href="/tags/ES6/" rel="tag"><i class="fa fa-tag"></i>&nbsp;ES6</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/js-array.html" rel="next" title="js中的数组相关知识点">
+                <i class="fa fa-chevron-left"></i> js中的数组相关知识点
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/vue-basis.html" rel="prev" title="Vue的基础知识点">
+                Vue的基础知识点 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -343,8 +568,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -422,6 +656,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、箭头函数"><span class="nav-number">1.</span> <span class="nav-text">一、箭头函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、双冒号运算符"><span class="nav-number">2.</span> <span class="nav-text">二、双冒号运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、解构赋值"><span class="nav-number">3.</span> <span class="nav-text">三、解构赋值</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

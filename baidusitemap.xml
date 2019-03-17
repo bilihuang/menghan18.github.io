@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://huangdongyang.cn/npmscripts/</loc>
+    <loc>https://huangdongyang.cn/npmscripts.html</loc>
     <lastmod>2019-03-03</lastmod>
   </url>  <url>
-    <loc>https://huangdongyang.cn/js-this/</loc>
+    <loc>https://huangdongyang.cn/js-this.html</loc>
     <lastmod>2019-02-28</lastmod>
   </url>  <url>
-    <loc>https://huangdongyang.cn/es6-function/</loc>
+    <loc>https://huangdongyang.cn/es6-function.html</loc>
     <lastmod>2019-02-27</lastmod>
   </url>  <url>
-    <loc>https://huangdongyang.cn/js-array/</loc>
+    <loc>https://huangdongyang.cn/js-array.html</loc>
     <lastmod>2019-02-27</lastmod>
   </url>  <url>
-    <loc>https://huangdongyang.cn/vue-component/</loc>
+    <loc>https://huangdongyang.cn/vue-component.html</loc>
     <lastmod>2019-02-24</lastmod>
   </url>  <url>
-    <loc>https://huangdongyang.cn/vue-router/</loc>
+    <loc>https://huangdongyang.cn/vue-router.html</loc>
     <lastmod>2019-02-24</lastmod>
   </url>  <url>
-    <loc>https://huangdongyang.cn/vue-basis/</loc>
+    <loc>https://huangdongyang.cn/vue-basis.html</loc>
     <lastmod>2019-02-03</lastmod>
   </url>  <url>
-    <loc>https://huangdongyang.cn/gitCommand/</loc>
+    <loc>https://huangdongyang.cn/gitCommand.html</loc>
     <lastmod>2019-02-03</lastmod>
   </url>
 </urlset>
