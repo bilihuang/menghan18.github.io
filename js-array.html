@@ -422,10 +422,10 @@
 
       
         <p>1.数组的每一项可以用来保存任何类型的数据</p>
-<p>2.可以通过length属性在数组末尾移除项或向数组添加新项<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var colors = [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;];    //creates an array with three strings</span><br><span class="line">colors.length = 2;</span><br><span class="line">alert(colors[2]);         //undefined</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var colors = [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;];    //creates an array with three strings</span><br><span class="line">colors.length = 4;</span><br><span class="line">alert(colors[3]);        //undefined</span><br></pre></td></tr></table></figure>
+<p>2.可以通过length属性在数组末尾移除项或向数组添加新项<br><figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var colors = [<span class="string">"red"</span>, <span class="string">"blue"</span>, <span class="string">"green"</span>];    //creates an<span class="built_in"> array </span>with three strings</span><br><span class="line">colors.length = 2;</span><br><span class="line">alert(colors[2]);         //undefined</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var colors = [<span class="string">"red"</span>, <span class="string">"blue"</span>, <span class="string">"green"</span>];    //creates an<span class="built_in"> array </span>with three strings</span><br><span class="line">colors.length = 4;</span><br><span class="line">alert(colors[3]);        //undefined</span><br></pre></td></tr></table></figure>
 <p>3.alert()方法要接收字符串参数时会在后台调用toString()方法，都是创建一个数组值的以逗号分隔的字符串</p>
-<p>4.join()方法可以使用不同的分隔符来构建字符串<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var colors = [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;];</span><br><span class="line">alert(colors.join(&quot;,&quot;));      //red,green,blue</span><br><span class="line">alert(colors.join(&quot;||&quot;));     //red||green||blue</span><br></pre></td></tr></table></figure></p>
+<p>4.join()方法可以使用不同的分隔符来构建字符串<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> colors = [<span class="string">"red"</span>, <span class="string">"green"</span>, <span class="string">"blue"</span>];</span><br><span class="line">alert(colors.<span class="keyword">join</span>(<span class="string">","</span>));      <span class="comment">//red,green,blue</span></span><br><span class="line">alert(colors.<span class="keyword">join</span>(<span class="string">"||"</span>));     <span class="comment">//red||green||blue</span></span><br></pre></td></tr></table></figure></p>
 <p>5.栈和队列    </p>
 <ul>
 <li>push()返回添加后的数组长度，而pop()返回移除的项,二者实现类似栈行为    </li>
@@ -437,13 +437,13 @@
 <li>reverse()反转数组项顺序    </li>
 <li>sort()调用每个数组项的toString()，比较得到的字符串确定排序，即是数组项是数值</li>
 </ul>
-<p>7.操作方法<br>concat()基于当前数组中的所有项创建一个新数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var colors = [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;];</span><br><span class="line">var colors2 = colors.concat(&quot;yellow&quot;, [&quot;black&quot;, &quot;brown&quot;]);</span><br><span class="line">alert(colors);     //red,green,blue        </span><br><span class="line">alert(colors2);    //red,green,blue,yellow,black,brown</span><br></pre></td></tr></table></figure></p>
+<p>7.操作方法<br>concat()基于当前数组中的所有项创建一个新数组<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> colors = [<span class="string">"red"</span>, <span class="string">"green"</span>, <span class="string">"blue"</span>];</span><br><span class="line"><span class="keyword">var</span> colors2 = colors.concat(<span class="string">"yellow"</span>, [<span class="string">"black"</span>, <span class="string">"brown"</span>]);</span><br><span class="line">alert(colors);     <span class="comment">//red,green,blue        </span></span><br><span class="line">alert(colors2);    <span class="comment">//red,green,blue,yellow,black,brown</span></span><br></pre></td></tr></table></figure></p>
 <p>slice()基于当前数组的一或多项创建一个新数组</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var colors = [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;, &quot;yellow&quot;, &quot;purple&quot;];</span><br><span class="line">var colors2 = colors.slice(1);</span><br><span class="line">var colors3 = colors.slice(1,4);</span><br><span class="line">alert(colors2);   //green,blue,yellow,purple</span><br><span class="line">alert(colors3);   //green,blue,yellow</span><br></pre></td></tr></table></figure>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var colors = [<span class="string">"red"</span>, <span class="string">"green"</span>, <span class="string">"blue"</span>, <span class="string">"yellow"</span>, <span class="string">"purple"</span>];</span><br><span class="line">var colors<span class="number">2</span> = colors.slice<span class="comment">(1)</span>;</span><br><span class="line">var colors<span class="number">3</span> = colors.slice<span class="comment">(1,4)</span>;</span><br><span class="line">alert<span class="comment">(colors2)</span>;   <span class="comment">//green,blue,yellow,purple</span></span><br><span class="line">alert<span class="comment">(colors3)</span>;   <span class="comment">//green,blue,yellow</span></span><br></pre></td></tr></table></figure>
 <p>splice()</p>
 <ul>
 <li><p>删除：可以删除任意数量的项，参数为要删除的第一项位置和要删除的项数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var colors = [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;];</span><br><span class="line">var removed = colors.splice(0,1);              //remove the first item</span><br><span class="line">alert(colors);     //green,blue</span><br><span class="line">alert(removed);    //red - one item array</span><br></pre></td></tr></table></figure>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var colors = [<span class="string">"red"</span>, <span class="string">"green"</span>, <span class="string">"blue"</span>];</span><br><span class="line">var removed = colors.splice<span class="comment">(0,1)</span>;              <span class="comment">//remove the first item</span></span><br><span class="line">alert<span class="comment">(colors)</span>;     <span class="comment">//green,blue</span></span><br><span class="line">alert<span class="comment">(removed)</span>;    <span class="comment">//red - one item array</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>插入：向指定位置插入任意数量的项，需提供3个参数：起始位置、0（要删除的项数）和要插入的项。例如，splice(2,0,”red”,”green”)会从当前数组的位置2开始插入字符串red和green       </p>
 </li>
@@ -596,7 +596,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -618,7 +618,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
