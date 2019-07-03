@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Menghan&#39;s Blog">
 <meta property="og:description" content="JS隐式转换规则分析">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-03T03:13:25.800Z">
+<meta property="og:updated_time" content="2019-07-03T03:17:50.672Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS隐式转换">
 <meta name="twitter:description" content="JS隐式转换规则分析">
@@ -340,7 +340,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-07-03T11:13:25+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-07-03T11:17:50+08:00">
                 2019-07-03
               </time>
             
@@ -435,61 +435,58 @@
 </ul>
 </li>
 </ol>
-<pre><code>1. ##### 通过ToPrimitive将值转换为原始值
-
-  js引擎内部的抽象操作ToPrimitive有着这样的签名：
-  ToPrimitive(input, PreferredType?)
-  input是要转换的值，PreferredType是可选参数，可以是Number或String类型。他只是一个转换标志，转化后的结果并不一定是这个参数所值的类型，但是转换结果一定是一个原始值（或者报错）。
-
-  - 如果PreferredType被标记为Number，则会进行下面的操作流程来转换输入的值。
-
-    1. 如果输入的值已经是一个原始值，则直接返回它 
-    2. 否则，如果输入的值是一个对象，则调用该对象的valueOf()方法，    如果valueOf()方法的返回值是一个原始值，则返回这个原始值。 
-    3. 否则，调用这个对象的toString()方法，如果toString()方法返回的是一个原始值，则返回这个原始值。 
-    4. 否则，抛出TypeError异常。
-
-  - 如果PreferredType被标记为String，则会进行下面的操作流程来转换输入的值。
-
-    1. 如果输入的值已经是一个原始值，则直接返回它 
-    2. 否则，如果输入的值是一个对象，则调用该对象的toString()方法，    如果toString()方法的返回值是一个原始值，则返回这个原始值。 
-    3. 否则，调用这个对象的valueOf()方法，如果valueOf()方法返回的是一个原始值，则返回这个原始值。 
-    4. 否则，抛出TypeError异常。
-
-  - 如果PreferredType没有值，会按以下规则处理
-
-    1. 该对象为Date类型，则PreferredType被设置为String
-    2. 否则，PreferredType被设置为Number
-
-    原因：因为valueOf函数会将Number、String、Boolean基础类型的对象类型值转换成 基础类型，Date类型转换为毫秒数，其它的返回对象本身，而toString方法会将所有对象转换为字符串。显然对于大部分对象转换，valueOf转换更合理些，因为并没有规定转换类型，应该尽可能保持原有值，而不应该想toString方法一样，将其转换为字符串。而对于Date类型，其进行valueOf转换为毫秒数的number类型。在进行隐式转换时，没有指定将其转换为number类型时，将其转换为那么大的number类型的值显然没有多大意义。（不管是在+运算符还是==运算符）还不如转换为字符串格式的日期，所以默认Date类型会优先进行toString转换。
-
-  - **valueOf方法和toString方法解析**
-
-    Object.prototype中有valueOf和toString方法，故任何对象都会有这两个方法。
-
-    valueOf转换结果：
-
-    1. Number、Boolean、String这三种构造函数生成的基础值的对象形式，通过valueOf转换后会变成相应的原始值。
-
-       <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="string">'123'</span>);</span><br><span class="line">num.valueOf(); <span class="comment">// 123</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'12df'</span>);</span><br><span class="line">str.valueOf(); <span class="comment">// '12df'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> bool = <span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="string">'fd'</span>);</span><br><span class="line">bool.valueOf(); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-
-    2. Date这种特殊的对象，其原型Date.prototype上内置的valueOf函数将日期转换为日期的毫秒的形式的数值。
-
-       <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">a.valueOf(); <span class="comment">// 1515143895500</span></span><br></pre></td></tr></table></figure>
-
-    3. 除此之外返回的都为this，即对象本身
-
-       <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">a.valueOf() === a; <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> <span class="built_in">Object</span>(&#123;&#125;);</span><br><span class="line">b.valueOf() === b; <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-
-    toString转换结果：
-
-    1. Number、Boolean、String、Array、Date、RegExp、Function这几种构造函数生成的对象，通过toString转换后会变成相应的字符串的形式，因为这些构造函数上封装了自己的toString方法。
-
-       <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>.prototype.hasOwnProperty(<span class="string">'toString'</span>); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Boolean</span>.prototype.hasOwnProperty(<span class="string">'toString'</span>); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">String</span>.prototype.hasOwnProperty(<span class="string">'toString'</span>); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Array</span>.prototype.hasOwnProperty(<span class="string">'toString'</span>); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Date</span>.prototype.hasOwnProperty(<span class="string">'toString'</span>); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">RegExp</span>.prototype.hasOwnProperty(<span class="string">'toString'</span>); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Function</span>.prototype.hasOwnProperty(<span class="string">'toString'</span>); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="string">'123sd'</span>);</span><br><span class="line">num.toString(); <span class="comment">// 'NaN'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'12df'</span>);</span><br><span class="line">str.toString(); <span class="comment">// '12df'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> bool = <span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="string">'fd'</span>);</span><br><span class="line">bool.toString(); <span class="comment">// 'true'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line">arr.toString(); <span class="comment">// '1,2'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">d.toString(); <span class="comment">// "Wed Oct 11 2017 08:00:00 GMT+0800 (中国标准时间)"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> func = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">func.toString(); <span class="comment">// "function () &#123;&#125;"</span></span><br></pre></td></tr></table></figure>
-
-    2. 其他对象返回的都是该对象的类型
-
-       <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>(&#123;&#125;);</span><br><span class="line">obj.toString(); <span class="comment">// "[object Object]"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Math</span>.toString(); <span class="comment">// "[object Math]"</span></span><br></pre></td></tr></table></figure>
-</code></pre><ol start="2">
+<ol>
+<li><h5 id="通过ToPrimitive将值转换为原始值"><a href="#通过ToPrimitive将值转换为原始值" class="headerlink" title="通过ToPrimitive将值转换为原始值"></a>通过ToPrimitive将值转换为原始值</h5><p>js引擎内部的抽象操作ToPrimitive有着这样的签名：<br>ToPrimitive(input, PreferredType?)<br>input是要转换的值，PreferredType是可选参数，可以是Number或String类型。他只是一个转换标志，转化后的结果并不一定是这个参数所值的类型，但是转换结果一定是一个原始值（或者报错）。</p>
+<ul>
+<li><p>如果PreferredType被标记为Number，则会进行下面的操作流程来转换输入的值。</p>
+<ol>
+<li>如果输入的值已经是一个原始值，则直接返回它 </li>
+<li>否则，如果输入的值是一个对象，则调用该对象的valueOf()方法，    如果valueOf()方法的返回值是一个原始值，则返回这个原始值。 </li>
+<li>否则，调用这个对象的toString()方法，如果toString()方法返回的是一个原始值，则返回这个原始值。 </li>
+<li>否则，抛出TypeError异常。</li>
+</ol>
+</li>
+<li><p>如果PreferredType被标记为String，则会进行下面的操作流程来转换输入的值。</p>
+<ol>
+<li>如果输入的值已经是一个原始值，则直接返回它 </li>
+<li>否则，如果输入的值是一个对象，则调用该对象的toString()方法，    如果toString()方法的返回值是一个原始值，则返回这个原始值。 </li>
+<li>否则，调用这个对象的valueOf()方法，如果valueOf()方法返回的是一个原始值，则返回这个原始值。 </li>
+<li>否则，抛出TypeError异常。</li>
+</ol>
+</li>
+<li><p>如果PreferredType没有值，会按以下规则处理</p>
+<ol>
+<li>该对象为Date类型，则PreferredType被设置为String</li>
+<li>否则，PreferredType被设置为Number</li>
+</ol>
+<p>原因：因为valueOf函数会将Number、String、Boolean基础类型的对象类型值转换成 基础类型，Date类型转换为毫秒数，其它的返回对象本身，而toString方法会将所有对象转换为字符串。显然对于大部分对象转换，valueOf转换更合理些，因为并没有规定转换类型，应该尽可能保持原有值，而不应该想toString方法一样，将其转换为字符串。而对于Date类型，其进行valueOf转换为毫秒数的number类型。在进行隐式转换时，没有指定将其转换为number类型时，将其转换为那么大的number类型的值显然没有多大意义。（不管是在+运算符还是==运算符）还不如转换为字符串格式的日期，所以默认Date类型会优先进行toString转换。</p>
+</li>
+<li><p><strong>valueOf方法和toString方法解析</strong></p>
+<p>Object.prototype中有valueOf和toString方法，故任何对象都会有这两个方法。</p>
+<p>valueOf转换结果：</p>
+<ol>
+<li><p>Number、Boolean、String这三种构造函数生成的基础值的对象形式，通过valueOf转换后会变成相应的原始值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="string">'123'</span>);</span><br><span class="line">num.valueOf(); <span class="comment">// 123</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'12df'</span>);</span><br><span class="line">str.valueOf(); <span class="comment">// '12df'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> bool = <span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="string">'fd'</span>);</span><br><span class="line">bool.valueOf(); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Date这种特殊的对象，其原型Date.prototype上内置的valueOf函数将日期转换为日期的毫秒的形式的数值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">a.valueOf(); <span class="comment">// 1515143895500</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>除此之外返回的都为this，即对象本身</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">a.valueOf() === a; <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> <span class="built_in">Object</span>(&#123;&#125;);</span><br><span class="line">b.valueOf() === b; <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>toString转换结果：</p>
+<ol>
+<li><p>Number、Boolean、String、Array、Date、RegExp、Function这几种构造函数生成的对象，通过toString转换后会变成相应的字符串的形式，因为这些构造函数上封装了自己的toString方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>.prototype.hasOwnProperty(<span class="string">'toString'</span>); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Boolean</span>.prototype.hasOwnProperty(<span class="string">'toString'</span>); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">String</span>.prototype.hasOwnProperty(<span class="string">'toString'</span>); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Array</span>.prototype.hasOwnProperty(<span class="string">'toString'</span>); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Date</span>.prototype.hasOwnProperty(<span class="string">'toString'</span>); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">RegExp</span>.prototype.hasOwnProperty(<span class="string">'toString'</span>); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Function</span>.prototype.hasOwnProperty(<span class="string">'toString'</span>); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="string">'123sd'</span>);</span><br><span class="line">num.toString(); <span class="comment">// 'NaN'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'12df'</span>);</span><br><span class="line">str.toString(); <span class="comment">// '12df'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> bool = <span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="string">'fd'</span>);</span><br><span class="line">bool.toString(); <span class="comment">// 'true'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line">arr.toString(); <span class="comment">// '1,2'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">d.toString(); <span class="comment">// "Wed Oct 11 2017 08:00:00 GMT+0800 (中国标准时间)"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> func = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">func.toString(); <span class="comment">// "function () &#123;&#125;"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>其他对象返回的都是该对象的类型</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>(&#123;&#125;);</span><br><span class="line">obj.toString(); <span class="comment">// "[object Object]"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Math</span>.toString(); <span class="comment">// "[object Math]"</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+</li>
 <li><h5 id="通过ToNumber将值转换为数字"><a href="#通过ToNumber将值转换为数字" class="headerlink" title="通过ToNumber将值转换为数字"></a>通过ToNumber将值转换为数字</h5><p>根据参数类型进行下面转换：</p>
 </li>
 </ol>
@@ -801,7 +798,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#三种隐式转换类型"><span class="nav-number">1.</span> <span class="nav-text">三种隐式转换类型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#通过ToNumber将值转换为数字"><span class="nav-number">1.1.</span> <span class="nav-text">通过ToNumber将值转换为数字</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#通过ToString将值转换为字符串"><span class="nav-number">1.2.</span> <span class="nav-text">通过ToString将值转换为字符串</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#隐式转换"><span class="nav-number">2.</span> <span class="nav-text">==隐式转换</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#三种隐式转换类型"><span class="nav-number">1.</span> <span class="nav-text">三种隐式转换类型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#通过ToPrimitive将值转换为原始值"><span class="nav-number">1.1.</span> <span class="nav-text">通过ToPrimitive将值转换为原始值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#通过ToNumber将值转换为数字"><span class="nav-number">1.2.</span> <span class="nav-text">通过ToNumber将值转换为数字</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#通过ToString将值转换为字符串"><span class="nav-number">1.3.</span> <span class="nav-text">通过ToString将值转换为字符串</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#隐式转换"><span class="nav-number">2.</span> <span class="nav-text">==隐式转换</span></a></li></ol></div>
             
 
           </div>
